@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #e6d7c5;
 }
@@ -18,14 +22,19 @@ body {
     align-items: center;
     z-index: 1;
     padding: 0 100px;
-    background-color: #e6d7c5;
+    background-color: #1d191459;
     height: 70px;
     width: 100%;
 }
 
-#root #navbar ol{
+#root #navbar ol {
     display: flex;
     gap: 50px;
+}
+
+#root #navbar li {
+    font-size: 18px;
+    color: #e6d7c5;
 }
 
 /* Section 1 - Slider style */
@@ -33,9 +42,13 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 70px);
+    background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
+    url('images/slider_pic_3.jpg');
+    height: 100vh;
     width: 100%;
-    margin-top: 70px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #root #slider .welcomeTxt {
@@ -49,47 +62,160 @@ body {
     left: 30%;
     transform: translate(-50%, -50%);
     height: 300px;
-    width: 500px;
+    width: 550px;
     border-radius: 40px;
     color: #e6d7c5;
     opacity: 0.8;
 }
 
 #root #slider .welcomeTxt h1 {
-    font-size: 50px;
+    font-size: 45px;
+    text-transform: uppercase;
 }
 
-#root #slider img {
-    height: calc(100vh - 70px);
-    width: 100%;
-    object-fit: cover;
-}
-
-#root #slider img.fade {
-    opacity: 0;
-    transition: 0.5s;
-}
-
-#root #slider img.appear {
-    opacity: 1;
-    transition: 0.5s;
-}
-
-#root #slider button {
+#root #slider svg {
     position: absolute;
-    background-color: #e6d7c5;
-    top: calc((100% - 70px) / 2);
-    transform: translateY(-50%);
+    bottom: 20px;
+    left: 50%;
     height: 50px;
-    width: 50px;
+    width: 60px;
+    transform: translateX(-50%);
+    z-index: 99;
+    color: #e6d7c5;
+    fill: none;
+    stroke: #1d1914;
+    stroke-width: 3;
+    
 }
 
-#root #slider #leftBtn{
-    left: 50px;
+#root #slider svg polyline:nth-child(1) {
+    animation-name: colorChange;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
 }
 
-#root #slider #rightBtn{
-    right: 50px;
+#root #slider svg polyline:nth-child(2) {
+    animation-name: colorChange;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.4s;
+    animation-timing-function: ease-out;
+}
+
+#root #slider svg polyline:nth-child(3) {
+    animation-name: colorChange;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.8s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes colorChange {
+    0% {
+        stroke: #1d1914;
+    }
+    10% {
+        stroke: #c7904e;
+    }
+    100% {
+        stroke: #1d1914;
+    }
+}
+
+#root #slider .options {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    bottom: 0;
+    right: 0;
+    height: 400px;
+    width: 750px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    padding-left: 25px;
+    overflow: hidden;
+}
+
+#root #slider .options h3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    text-decoration: underline;
+}
+
+#root #slider .options .option {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    transition: 1s;
+}
+
+#root #slider .options .option.scroll1 {
+    transform: translateX(-250px);
+}
+
+#root #slider .options .option.scroll2 {
+    transform: translateX(-500px);
+}
+
+#root #slider .options .option.scroll3 {
+    transform: translateX(-750px);
+}
+
+#root #slider .options .option.scroll4 {
+    transform: translateX(-1000px);
+}
+
+#root #slider .options .option.scroll5 {
+    transform: translateX(-1250px);
+}
+
+#root #slider .options .option img {
+    height: 200px;
+    width: 200px;
+    border-radius: 30px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+#root #slider .options .option img:hover {
+    transform: scale(1.2);
+}
+
+#root #slider .options .option p {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 50%;
+    width: 100px;
+    height: 40px;
+    background-color: #1d19149d;
+    border-radius: 30px 30px 0 0;
+    transform: translateX(-50%);
+    color: #e6d7c5;
+}
+
+#root #slider .options button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 70px;
+    width: 70px;
+}
+
+#root #slider .options #leftBtn {
+    left: calc(50% - 70px);
+    transform: translateX(-50%);
+}
+
+#root #slider .options #rightBtn {
+    right: calc(50% - 70px);
+    transform: translateX(-50%);
 }
 
 /* Section 2 - Options style */
@@ -124,4 +250,3 @@ body {
     width: 300px;
     object-fit: cover;
 }
-
