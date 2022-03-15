@@ -1,0 +1,127 @@
+body {
+    background-color: #e6d7c5;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Navbar style */
+#root #navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    padding: 0 100px;
+    background-color: #e6d7c5;
+    height: 70px;
+    width: 100%;
+}
+
+#root #navbar ol{
+    display: flex;
+    gap: 50px;
+}
+
+/* Section 1 - Slider style */
+#root #slider {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 70px);
+    width: 100%;
+    margin-top: 70px;
+}
+
+#root #slider .welcomeTxt {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1d1914;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 500px;
+    border-radius: 40px;
+    color: #e6d7c5;
+    opacity: 0.8;
+}
+
+#root #slider .welcomeTxt h1 {
+    font-size: 50px;
+}
+
+#root #slider img {
+    height: calc(100vh - 70px);
+    width: 100%;
+    object-fit: cover;
+}
+
+#root #slider img.fade {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#root #slider img.appear {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+#root #slider button {
+    position: absolute;
+    background-color: #e6d7c5;
+    top: calc((100% - 70px) / 2);
+    transform: translateY(-50%);
+    height: 50px;
+    width: 50px;
+}
+
+#root #slider #leftBtn{
+    left: 50px;
+}
+
+#root #slider #rightBtn{
+    right: 50px;
+}
+
+/* Section 2 - Options style */
+#root #options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#root #options .aboutUs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#root #options .aboutUs .anchors{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+#root #options .aboutUs .anchor {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+#root #options .aboutUs .anchor img {
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+}
+
