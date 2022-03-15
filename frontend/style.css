@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background-color: #e6d7c5;
+    background-color: #fff;
 }
 
 #root {
@@ -34,7 +34,7 @@ body {
 
 #root #navbar li {
     font-size: 18px;
-    color: #e6d7c5;
+    color: #fff;
 }
 
 /* Section 1 - Slider style */
@@ -51,26 +51,56 @@ body {
     background-size: cover;
 }
 
+/* Slider background image changes */
+#root #slider.jegiskolankBackground{
+    background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
+    url('images/jegiskolank.jpg');
+    animation: backgroundAppear 1s running;
+}
+
+#root #slider.hokisuliBackground{
+    background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
+    url('images/slider_pic_2.jpg');
+    animation: backgroundAppear 1s running;
+}
+
+@keyframes backgroundAppear {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 #root #slider .welcomeTxt {
     position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
+    gap: 20px;
     background-color: #1d1914;
-    top: 30%;
+    opacity: 0.8;
+    top: 40%;
     left: 30%;
+    padding-left: 20px;
+    border-radius: 40px;
     transform: translate(-50%, -50%);
     height: 300px;
     width: 550px;
-    border-radius: 40px;
-    color: #e6d7c5;
-    opacity: 0.8;
+    color: #fff;
 }
 
 #root #slider .welcomeTxt h1 {
     font-size: 45px;
     text-transform: uppercase;
+}
+
+#root #slider .welcomeTxt button {
+    height: 40px;
+    width: 100px;
+    border: 2px solid #fff;
+    font-size: 18px;
 }
 
 #root #slider svg {
@@ -81,7 +111,6 @@ body {
     width: 60px;
     transform: translateX(-50%);
     z-index: 99;
-    color: #e6d7c5;
     fill: none;
     stroke: #1d1914;
     stroke-width: 3;
@@ -116,7 +145,7 @@ body {
         stroke: #1d1914;
     }
     10% {
-        stroke: #c7904e;
+        stroke: #fff;
     }
     100% {
         stroke: #1d1914;
@@ -141,9 +170,12 @@ body {
 #root #slider .options h3 {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
     text-decoration: underline;
+    text-align: center;
+    color: #fff;
 }
 
 #root #slider .options .option {
@@ -179,9 +211,10 @@ body {
     border-radius: 30px;
     object-fit: cover;
     transition: 0.5s;
+    pointer-events: none;
 }
 
-#root #slider .options .option img:hover {
+#root #slider .options .option:hover {
     transform: scale(1.2);
 }
 
@@ -197,25 +230,29 @@ body {
     background-color: #1d19149d;
     border-radius: 30px 30px 0 0;
     transform: translateX(-50%);
-    color: #e6d7c5;
+    color: #fff;
+    pointer-events: none;
 }
 
 #root #slider .options button {
     position: absolute;
     bottom: 0;
-    right: 0;
-    height: 70px;
-    width: 70px;
+    height: 40px;
+    width: 40px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #fff;
 }
 
 #root #slider .options #leftBtn {
-    left: calc(50% - 70px);
-    transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(calc(-100% - 10px));
 }
 
 #root #slider .options #rightBtn {
-    right: calc(50% - 70px);
-    transform: translateX(-50%);
+    right: 50%;
+    transform: translateX(calc(100% + 10px));
 }
 
 /* Section 2 - Options style */

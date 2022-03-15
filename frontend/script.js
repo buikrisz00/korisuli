@@ -1,40 +1,6 @@
-/* // Global variables
-let counter = 2;
-const sliderImages = ["slider_pic_1", "slider_pic_2", "slider_pic_3"]; */
-
-/* function sliderAnimation() {
-    const sliderImg = document.querySelector("#slider img");
-
-    sliderImg.classList.remove("appear");
-    sliderImg.classList.add("fade");
-    setTimeout(function () {
-        sliderImg.src = `images/${sliderImages[counter]}.jpg`;
-        sliderImg.classList.remove("fade");
-        sliderImg.classList.add("appear");
-    }, 350);
-}
-
-function sliderClick(buttonId) {
-    if (buttonId === "leftBtn") {
-        if (counter > 0) {
-            counter--;
-            sliderAnimation();
-        } else {
-            counter = sliderImages.length - 1;
-            sliderAnimation();
-        }
-    } else {
-        if (counter < sliderImages.length - 1) {
-            counter++;
-            sliderAnimation();
-        } else {
-            counter = 0;
-            sliderAnimation();
-        }
-
-    }
-} */
+// Global variables
 let counter = 0;
+
 // Works for only 7 rn
 function miniMenu(buttonId) {
     const options = document.querySelectorAll(".option");
@@ -132,24 +98,59 @@ function miniMenu(buttonId) {
     }
 }
 
-function loadEvent() {
-    const sliderClickBtns = document.querySelectorAll(".options button");
+// Check which HTML preview text needs to be generated
+function checkWhichPreview(imgId) {
+    const slider = document.getElementById("slider");
+    // Reflow without doing anything
+    void(slider.offsetHeight);
 
-    /* // Automatic slider image change on interval
-    const sliderChange = setInterval(function () {
-        sliderAnimation();
-        if (counter < sliderImages.length - 1) {
-            counter++;
-        } else {
-            counter = 0;
-        }
-    }, 5000); */
+    if (imgId === "jegiskolankImg") {
+        slider.classList.add("jegiskolankBackground");
+        return generateJegiskolankHTML();
+    } else if (imgId === "hokisuliImg") {
+        slider.classList.add("hokisuliBackground");
+        return generateHokisuliHTML();
+    }
+}
+
+// Generate HTML preview text for Jégiskolánk
+function generateJegiskolankHTML() {
+    return `
+        <h1>Jégiskolánk</h1>
+        <p>Jégiskolánk hosszú és sikeres múltra tekinthet vissza! Ismerje meg megalakulásunk történetét!</p>
+        <button>Tovább &#8674</button>
+    `
+}
+
+// Generate HTML preview text for Jégiskolánk
+function generateHokisuliHTML() {
+    return `
+        <h1>Hokisuli</h1>
+        <p>2019-ben megnyitottuk kapuinkat a hoki felé is. Kis csapatunk hoki oktatásai külön edzéseken történnek a jégiskola mellett.</p>
+        <button>Tovább &#8674</button>
+    `
+}
+
+function loadEvent() {
+    const slider = document.getElementById("slider");
+    const sliderClickBtns = document.querySelectorAll(".options button");
+    const sliderImages = document.querySelectorAll(".options .option");
+    const welcomeTxt = document.querySelector(".welcomeTxt");
 
     // Click event for buttons on slider
     for (const sliderClickBtn of sliderClickBtns) {
         sliderClickBtn.addEventListener("click", function (event) {
             miniMenu(event.target.id);
             /* clearInterval(sliderChange) */;
+        })
+    }
+
+    // Click event for slider images
+    for (const sliderImage of sliderImages) {
+        sliderImage.addEventListener("click", function (event) {
+            slider.className = "";
+            welcomeTxt.innerHTML = "";
+            welcomeTxt.insertAdjacentHTML("beforeend", checkWhichPreview(event.target.id));
         })
     }
 }
