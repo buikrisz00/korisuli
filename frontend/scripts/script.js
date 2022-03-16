@@ -118,7 +118,7 @@ function generateJegiskolankHTML() {
     return `
         <h1>Jégiskolánk</h1>
         <p>Jégiskolánk hosszú és sikeres múltra tekinthet vissza! Ismerje meg megalakulásunk történetét!</p>
-        <button>Tovább &#8674</button>
+        <a href="jegiskolank.html">Tovább &#8674</a>
     `
 }
 
@@ -127,7 +127,7 @@ function generateHokisuliHTML() {
     return `
         <h1>Hokisuli</h1>
         <p>2019-ben megnyitottuk kapuinkat a hoki felé is. Kis csapatunk hoki oktatásai külön edzéseken történnek a jégiskola mellett.</p>
-        <button>Tovább &#8674</button>
+        <a href="hokisuli.html">Tovább &#8674</a>
     `
 }
 

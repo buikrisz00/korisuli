@@ -4,6 +4,7 @@ html {
 
 body {
     background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #root {
@@ -43,7 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
-    url('images/slider_pic_3.jpg');
+    url('../images/slider_pic_3.jpg');
     height: 100vh;
     width: 100%;
     background-position: center;
@@ -54,19 +55,19 @@ body {
 /* Slider background image changes */
 #root #slider.jegiskolankBackground{
     background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
-    url('images/jegiskolank.jpg');
+    url('../images/jegiskolank.jpg');
     animation: backgroundAppear 1s running;
 }
 
 #root #slider.hokisuliBackground{
     background-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9)),
-    url('images/slider_pic_2.jpg');
+    url('../images/slider_pic_2.jpg');
     animation: backgroundAppear 1s running;
 }
 
 @keyframes backgroundAppear {
     from {
-        opacity: 0.5;
+        opacity: 0.7;
     }
     to {
         opacity: 1;
@@ -78,7 +79,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     background-color: #1d1914;
     opacity: 0.8;
     top: 40%;
@@ -93,12 +94,17 @@ body {
 
 #root #slider .welcomeTxt h1 {
     font-size: 45px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
-#root #slider .welcomeTxt button {
+#root #slider .welcomeTxt a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40px;
-    width: 100px;
+    width: fit-content;
+    padding: 0 10px;
     border: 2px solid #fff;
     font-size: 18px;
 }
@@ -118,26 +124,15 @@ body {
 }
 
 #root #slider svg polyline:nth-child(1) {
-    animation-name: colorChange;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
+    animation: colorChange 2s infinite ease-out;
 }
 
 #root #slider svg polyline:nth-child(2) {
-    animation-name: colorChange;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-delay: 0.4s;
-    animation-timing-function: ease-out;
+    animation: colorChange 2s infinite 0.4s ease-out;
 }
 
 #root #slider svg polyline:nth-child(3) {
-    animation-name: colorChange;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-delay: 0.8s;
-    animation-timing-function: ease-out;
+    animation: colorChange 2s infinite 0.8s ease-out;
 }
 
 @keyframes colorChange {
@@ -152,6 +147,7 @@ body {
     }
 }
 
+/* Mini Menu options */
 #root #slider .options {
     position: absolute;
     display: flex;
@@ -182,15 +178,27 @@ body {
     position: relative;
     height: 200px;
     width: 200px;
-    transition: 1s;
+    transition: 0.5s;
+}
+
+#root #slider .options .option:hover {
+    transform: scale(1.2);
 }
 
 #root #slider .options .option.scroll1 {
     transform: translateX(-250px);
 }
 
+#root #slider .options .option.scroll1:hover {
+    transform: translateX(-250px) scale(1.2);
+}
+/* 
 #root #slider .options .option.scroll2 {
     transform: translateX(-500px);
+}
+
+#root #slider .options .option.scroll2:hover {
+    transform: translateX(-500px) scale(1.2);
 }
 
 #root #slider .options .option.scroll3 {
@@ -203,7 +211,7 @@ body {
 
 #root #slider .options .option.scroll5 {
     transform: translateX(-1250px);
-}
+} */
 
 #root #slider .options .option img {
     height: 200px;
@@ -214,9 +222,6 @@ body {
     pointer-events: none;
 }
 
-#root #slider .options .option:hover {
-    transform: scale(1.2);
-}
 
 #root #slider .options .option p {
     position: absolute;
